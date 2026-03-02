@@ -1,34 +1,286 @@
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+/**************   Base   ****************** */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 .App {
-  text-align: center;
-  background-color: #282c34;
   min-height: 100vh;
+  background: #0f1117;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 48px 16px 80px;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  color: #e2e8f0;
 }
+
+/**************   Card   ****************** */
+
+.App-card {
+  width: 100%;
+  max-width: 640px;
+  background: #1a1d27;
+  border: 1px solid #2d3148;
+  border-radius: 16px;
+  padding: 40px 36px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+}
+
+.App-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #f1f5f9;
+  margin-bottom: 8px;
+  letter-spacing: -0.5px;
+}
+
+.App-subtitle {
+  font-size: 0.875rem;
+  color: #64748b;
+  margin-bottom: 28px;
+  line-height: 1.6;
+}
+
+.App-subtitle code {
+  background: #252836;
+  color: #93c5fd;
+  padding: 1px 5px;
+  border-radius: 4px;
+  font-family: 'Cascadia Code', 'Fira Code', monospace;
+  font-size: 0.82rem;
+}
+
+/**************   Input   ****************** */
+
+.App-input-wrapper {
+  border-radius: 10px;
+  border: 2px solid #2d3148;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+  background: #252836;
+}
+
+.App-input-wrapper:focus-within {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
+.App-input-wrapper--error {
+  border-color: #ef4444 !important;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15) !important;
+}
+
+.App-input-wrapper--valid {
+  border-color: #22c55e;
+}
+
+.App-input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 14px 16px;
+  font-size: 1.05rem;
+  color: #f1f5f9;
+  font-family: 'Cascadia Code', 'Fira Code', 'Courier New', monospace;
+  letter-spacing: 0.3px;
+}
+
+.App-input::placeholder {
+  color: #475569;
+}
+
+
+/**************   Error   ****************** */
 
 .App-error {
-  color: red;
+  margin-top: 10px;
+  padding: 10px 14px;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 8px;
+  color: #fca5a5;
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  animation: fadeSlideIn 0.15s ease;
 }
 
-.App-link {
-  color: #61dafb;
+.App-error-icon {
+  font-size: 1rem;
+  flex-shrink: 0;
 }
 
-@keyframes App-logo-spin {
+
+/**************   Results   ****************** */
+
+.App-results {
+  margin-top: 28px;
+  animation: fadeSlideIn 0.2s ease;
+}
+
+.App-results-summary {
+  font-size: 0.875rem;
+  color: #94a3b8;
+  margin-bottom: 6px;
+  line-height: 1.7;
+}
+
+.App-array {
+  font-family: 'Cascadia Code', 'Fira Code', monospace;
+  font-size: 0.85rem;
+  color: #e2e8f0;
+}
+
+.App-array-item {
+  display: inline;
+}
+
+.App-comma {
+  color: #64748b;
+}
+
+.App-index {
+  color: #818cf8;
+  font-size: 0.72rem;
+  margin-right: 2px;
+}
+
+.App-num {
+  color: #f1f5f9;
+}
+
+.App-no-results {
+  margin-top: 16px;
+  padding: 20px;
+  text-align: center;
+  background: #252836;
+  border: 1px dashed #334155;
+  border-radius: 10px;
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+.App-match-count {
+  font-size: 0.8rem;
+  color: #4ade80;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 14px;
+}
+
+
+/**************   Table   ****************** */
+
+.App-table-wrapper {
+  overflow-x: auto;
+  border-radius: 10px;
+  border: 1px solid #2d3148;
+}
+
+.App-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.App-table thead tr {
+  background: #252836;
+  border-bottom: 1px solid #2d3148;
+}
+
+.App-table th {
+  padding: 11px 14px;
+  text-align: left;
+  color: #64748b;
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.App-table tbody tr {
+  border-bottom: 1px solid #1e2235;
+  transition: background 0.12s ease;
+}
+
+.App-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.App-table tbody tr:hover {
+  background: #252836;
+}
+
+.App-table td {
+  padding: 11px 14px;
+  color: #cbd5e1;
+  vertical-align: middle;
+}
+
+
+/**************   Badges   ****************** */
+
+.App-badge {
+  display: inline-block;
+  background: #2d3148;
+  color: #a5b4fc;
+  border-radius: 6px;
+  padding: 2px 9px;
+  font-family: 'Cascadia Code', 'Fira Code', monospace;
+  font-size: 0.82rem;
+  font-weight: 600;
+  min-width: 28px;
+  text-align: center;
+}
+
+.App-badge--sum {
+  background: #1e3a2f;
+  color: #4ade80;
+}
+
+/**************   Equation cell   ****************** */
+
+.App-equation {
+  font-family: 'Cascadia Code', 'Fira Code', monospace;
+  white-space: nowrap;
+}
+
+.App-eq-part {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 1px;
+  color: #93c5fd;
+}
+
+.App-eq-part sub {
+  color: #64748b;
+  font-size: 0.7em;
+  margin-left: 2px;
+}
+
+.App-eq-result {
+  color: #4ade80;
+}
+
+.App-op {
+  color: #475569;
+  padding: 0 2px;
+}
+
+/**************   Animation   ****************** */
+
+@keyframes fadeSlideIn {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
+    transform: translateY(-6px);
   }
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+    transform: translateY(0);
   }
 }
