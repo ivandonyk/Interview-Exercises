@@ -1,5 +1,6 @@
 /***
  * Author : Ivan Donyk
+ * Path : ./utils.js
  * Purpose : return available matches based on inputed number array. 
  * Input : number array
  * Output : Available matches
