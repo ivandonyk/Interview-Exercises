@@ -7,10 +7,10 @@
  * Hash-map approach to find all index triples (pA, pB, sum)
  * where A[pA] + A[pB] = A[sum] and all three indices are distinct. 
  * 
- * Time:  O(n²) average — O(n²) pairs, each with O(1) map lookup.
- *        O(n³) worst-case when all elements share the same value
- *        (e.g. [0, 0, 0, ...]), since every pair maps to O(n) candidates.
- * Space: O(n) for the value-to-indices map.
+ * Time Complexity:  O(n²) average — O(n²) pairs, each with O(1) map lookup.
+ *                   O(n³) worst-case when all elements share the same value
+ *                   (e.g. [0, 0, 0, ...]), since every pair maps to O(n) candidates.
+ * Space Complexity: O(n) for the value-to-indices map.
  */
 
 export const detectSums = (array) => {
